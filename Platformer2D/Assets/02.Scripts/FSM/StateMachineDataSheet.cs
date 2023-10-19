@@ -5,10 +5,8 @@ namespace Platformer.FSM
 {
     public static class StateMachineDataSheet
     {
-        public static IDictionary<CharacterStateID, IState<CharacterStateID>> GetPlayerData(StateMachine<CharacterStateID> machine)
+        public static IDictionary<CharacterStateID, IState<CharacterStateID>> GetPlayerData(PlayerMachine machine)
         {
-            IState<CharacterStateID> state = new Move(machine);
-
             return new Dictionary<CharacterStateID, IState<CharacterStateID>>()
             {
                 { CharacterStateID.Idle, new Idle(machine) },

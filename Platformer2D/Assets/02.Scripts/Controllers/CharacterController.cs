@@ -47,7 +47,7 @@ namespace Platformer.Controllers
             rigidbody = GetComponent<Rigidbody2D>();
         }
 
-        private void Update()
+        protected virtual void Update()
         {
             if (isMovable)
             {

@@ -7,7 +7,7 @@ namespace Platformer.FSM.Character
         public override CharacterStateID id => CharacterStateID.Move;
 
 
-        public Move(StateMachine<CharacterStateID> machine) 
+        public Move(CharacterMachine machine) 
             : base(machine)
         {
         }

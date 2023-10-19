@@ -1,3 +1,5 @@
+using Platformer.FSM;
+using System.Linq;
 using UnityEngine;
 
 namespace Platformer.Controllers
@@ -7,5 +9,21 @@ namespace Platformer.Controllers
         public override float horizontal => Input.GetAxisRaw("Horizontal");
 
         public override float vertical => Input.GetAxisRaw("Vertical");
+
+        private PlayerMachine _machine;
+
+        private void Start()
+        {
+            _machine = new PlayerMachine(this);
+            var machineData = StateMachineDataSheet.GetPlayerData(_machine);
+            _machine.Init(machineData);
+            _machine.currentStateID = machineData.First().Key; 
+        }
+
+        protected override void Update()
+        {
+            base.Update();
+            _machine.UpdateState();
+        }
     }
 }
