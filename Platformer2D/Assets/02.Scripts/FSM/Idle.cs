@@ -17,6 +17,10 @@ namespace Platformer.FSM.Character
         public override void OnStateEnter()
         {
             base.OnStateEnter();
+            controller.isDirectionChangeable = true;
+            controller.isMovable = true;
+            controller.hasJumped = false;
+            controller.hasDoubleJumped = false;
             animator.Play("Idle");
         }
 
@@ -29,6 +33,9 @@ namespace Platformer.FSM.Character
 
             if (Mathf.Abs(controller.horizontal) > 0.0f)
                 nextID = CharacterStateID.Move;
+
+            if (controller.isGrounded == false)
+                nextID = CharacterStateID.Fall;
 
             return nextID;
         }
