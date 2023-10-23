@@ -16,7 +16,6 @@ namespace Platformer.FSM
 
         public virtual void OnStateEnter()
         {
-            UnityEngine.Debug.Log($"State Entered to {id}");
         }
 
         public virtual void OnStateExit()
