@@ -15,6 +15,7 @@ namespace Platformer.Controllers
 
         protected override void Start()
         {
+            base.Start();
             machine = new PlayerMachine(this);
             var machineData = StateMachineDataSheet.GetPlayerData(machine);
             machine.Init(machineData);
