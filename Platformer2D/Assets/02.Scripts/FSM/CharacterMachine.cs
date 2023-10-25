@@ -2,7 +2,7 @@ using Platformer.Controllers;
 
 namespace Platformer.FSM
 {
-    public abstract class CharacterMachine : StateMachine<CharacterStateID>
+    public class CharacterMachine : StateMachine<CharacterStateID>
     {
         public CharacterController owner;
 

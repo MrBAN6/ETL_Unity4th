@@ -1,4 +1,4 @@
-﻿using System.Linq;
+﻿using System;
 using UnityEngine;
 using CharacterController = Platformer.Controllers.CharacterController;
 
@@ -32,8 +32,6 @@ namespace Platformer.FSM
         protected Transform transform;
         protected Rigidbody2D rigidbody;
         protected Animator animator;
-        protected CapsuleCollider2D trigger;
-        protected CapsuleCollider2D collision;
 
         public CharacterStateBase(CharacterMachine machine)
             : base(machine)
@@ -43,8 +41,6 @@ namespace Platformer.FSM
             this.transform = machine.owner.transform;
             this.rigidbody = machine.owner.GetComponent<Rigidbody2D>();
             this.animator = machine.owner.GetComponentInChildren<Animator>();
-            this.trigger = machine.owner.GetComponent<CapsuleCollider2D>();
-            this.collision = machine.owner.GetComponentsInChildren<CapsuleCollider2D>().FirstOrDefault(x => x.isTrigger == false);
         }
     }
 }

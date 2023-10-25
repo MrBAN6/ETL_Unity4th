@@ -38,6 +38,11 @@ namespace Platformer.FSM
             _isDirty = false;
         }
 
+        public void UpdateState()
+        {
+            ChangeState(states[currentStateID].OnStateUpdate());
+        }
+
         public bool ChangeState(T newStateID)
         {
             if (_isDirty)
